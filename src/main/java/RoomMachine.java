@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class RoomMachine extends Instrument{
     private int id;
     private Building lockedBuilding;
@@ -20,5 +22,24 @@ public class RoomMachine extends Instrument{
     }
     public String toString() {
         return "RoomMachine ID: " + id + "\n" + super.toString();
+    }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        RoomMachine that = (RoomMachine) o;
+        return Objects.equals(id, that.id) && this.equals(that);
+    }
+
+    @Override
+    public final void isReadyToUse() {
+
+    }
+
+    @Override
+    public final void isHasPrice() {
+
     }
 }

@@ -15,7 +15,7 @@ public class Modulation {
 
         Ground ground = new Ground(30, 30, 1, "West", 2);
 
-        WoodHouse woodHouse = new WoodHouse(10, 10, 1, 1, 2, 40);
+        WoodHouse woodHouse = new WoodHouse(10, 10, 4, 0, 1, 1, 2, 40);
 
         Order order = new Order(1, manager, owner, ground, woodHouse, 0, false);
 

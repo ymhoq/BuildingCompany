@@ -1,4 +1,6 @@
-public abstract class Person {
+import java.util.Objects;
+
+public abstract class Person implements IMessege{
     private String firstName;
     private String lastName;
     private int age;
@@ -57,5 +59,14 @@ public abstract class Person {
     public String toString() {
         return "first name : " + firstName
                 + "last name : " + lastName + "\n";
+    }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Person that = (Person) o;
+        return Objects.equals(this.lastName, that.lastName) && Objects.equals(this.getFirstName(), that.getFirstName());
     }
 }

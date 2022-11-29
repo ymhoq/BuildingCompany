@@ -1,32 +1,16 @@
-public class Office extends Building {
-    private float coeffCount;
-    private float coeffProcess;
+import java.util.Objects;
+
+public final class Office extends Building {
+     private final float COEFFCOUNT = 1;
+    final private float COEFFPROCESS = 1;
     private int workPlaces;
 
     public Office() {
     }
 
-    public Office(float length, float shirina, int id, float coeffCount, float coeffProcess, int workPlaces) {
-        super( length, shirina, id);
-        this.coeffCount = coeffCount;
-        this.coeffProcess = coeffProcess;
+    public Office(float length, float width, int rooms, int statusReady, int id, int workPlaces) {
+        super( length, width, id, rooms, statusReady);
         this.workPlaces = workPlaces;
-    }
-
-    public float getCoefCount() {
-        return coeffCount;
-    }
-
-    public void setCoefCount(float coefCount) {
-        this.coeffCount = coefCount;
-    }
-
-    public float getCoefProcess() {
-        return coeffProcess;
-    }
-
-    public void setCoefProcess(float coefProcess) {
-        this.coeffProcess = coefProcess;
     }
 
     public int getWorkPlaces() {
@@ -38,5 +22,14 @@ public class Office extends Building {
     }
     public String toString() {
         return  super.toString() + "work places: " + workPlaces + "\n" ;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Office that = (Office) o;
+        return  Objects.equals(workPlaces, that.workPlaces) && Objects.equals(this.getId(), that.getId());
     }
 }

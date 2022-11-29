@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Owner extends Person{
     private boolean firstTime;
 
@@ -23,5 +25,12 @@ public class Owner extends Person{
         return super.toString()  + isFirstTime() + " owner : "+ "\n";
     }
 
-
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Owner that = (Owner) o;
+        return Objects.equals(firstTime, that.firstTime) && Objects.equals(this.getLastName(), that.getLastName());
+    }
 }

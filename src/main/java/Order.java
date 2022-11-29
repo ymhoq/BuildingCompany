@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Order {
     private int id;
     private Manager manager;
@@ -82,5 +84,17 @@ public class Order {
                 + "\n" + "Owner: " + owner.toString()
                 + "\n" + "Amount: " + amount
                 + "\n" + "Status of payment: " + statusPay + "\n";
+    }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Order that = (Order) o;
+        return Objects.equals(id, that.id) && Objects.equals(manager, that.manager)
+                && Objects.equals(owner, that.owner) && Objects.equals(ground, that.ground)
+                && Objects.equals(building, that.building) && Objects.equals(amount, that.amount)
+                && Objects.equals(statusPay, that.statusPay) ;
     }
 }

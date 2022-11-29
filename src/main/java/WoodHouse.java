@@ -1,4 +1,6 @@
-public class WoodHouse extends Building{
+import java.util.Objects;
+
+public final class WoodHouse extends Building{
     private float coeffCount;
     private float coeffProcess;
     private int lifeArea;
@@ -6,8 +8,8 @@ public class WoodHouse extends Building{
     public WoodHouse() {
     }
 
-    public WoodHouse(float length, float width, int id,float coeffCount, float coeffProcess, int lifeArea) {
-        super(length, width, id);
+    public WoodHouse(float length, float width, int id, int rooms, int statusReady,float coeffCount, float coeffProcess, int lifeArea) {
+        super(length, width, id, rooms, statusReady);
         this.coeffCount = coeffCount;
         this.coeffProcess = coeffProcess;
         this.lifeArea = lifeArea;
@@ -40,4 +42,15 @@ public class WoodHouse extends Building{
     public String toString() {
         return "My life area is: " + lifeArea + " m2"+"\n";
     }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        WoodHouse that = (WoodHouse) o;
+        return Objects.equals(coeffCount, that.coeffCount) && Objects.equals(coeffProcess, that.coeffProcess)
+                && Objects.equals(lifeArea, that.lifeArea) && this.equals(that);
+    }
+
 }

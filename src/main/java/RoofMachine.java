@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class RoofMachine extends Instrument{
     private int id;
     private Building lockedBuilding;
@@ -20,5 +22,24 @@ public class RoofMachine extends Instrument{
     }
     public String toString() {
         return "RoofMachine ID: " + id + "\n" + super.toString();
+    }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        RoofMachine that = (RoofMachine) o;
+        return Objects.equals(id, that.id) && Objects.equals(lockedBuilding, that.lockedBuilding);
+    }
+
+    @Override
+    public final void isReadyToUse() {
+
+    }
+
+    @Override
+    public final void isHasPrice() {
+
     }
 }

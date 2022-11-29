@@ -1,4 +1,6 @@
-public abstract  class Instrument {
+import java.util.Objects;
+
+public abstract  class Instrument implements Equipmentable{
     private String name;
     private int count;
     private boolean isFree;
@@ -43,4 +45,14 @@ public abstract  class Instrument {
     public String toString() {
         return "Instrument: " + name + "\n" + isItemFree();
     }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Instrument that = (Instrument) o;
+        return Objects.equals(name, that.name) && Objects.equals(count, that.count) && Objects.equals(isFree, that.isFree);
+    }
+
 }
