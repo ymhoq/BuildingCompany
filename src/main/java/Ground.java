@@ -41,6 +41,7 @@ public class Ground extends SizeSquare {
         return "Id: " + id + " location" +location + " size:"  + getSquare() + " m2" +"\n";
     }
 
+
     @Override
     public void price() {
         super.price();

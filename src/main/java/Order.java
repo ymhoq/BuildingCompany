@@ -97,4 +97,15 @@ public class Order {
                 && Objects.equals(building, that.building) && Objects.equals(amount, that.amount)
                 && Objects.equals(statusPay, that.statusPay) ;
     }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (manager == null ? 0 : manager.hashCode())
+                + (owner == null ? 0 : owner.hashCode())
+                + (ground == null ? 0 : ground.hashCode())
+                + (building == null ? 0 : building.hashCode())
+           //     + (amount == null ? 0 : hashCode(amount))
+        ;
+        return result;
+    }
 }

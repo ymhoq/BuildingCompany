@@ -67,4 +67,12 @@ public class BuildProces {
     public void setStatusReady(int statusReady) {
         this.statusReady = statusReady;
     }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (building == null ? 0 : building.hashCode())
+                + (builderList == null ? 0 : builderList.hashCode())
+                + (instrumentList == null ? 0 : instrumentList.hashCode());
+        return result;
+    }
 }

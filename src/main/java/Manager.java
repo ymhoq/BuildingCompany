@@ -30,4 +30,12 @@ public class Manager extends Person{
         Manager that = (Manager) o;
         return Objects.equals(this.getSalary(), that.salary) && Objects.equals(this.getLastName(), that.getLastName());
     }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (super.getLastName() == null ? 0 : super.getLastName().hashCode())
+                + (super.getFirstName() == null ? 0 : super.getFirstName().hashCode())
+                + (super.getEmail() == null ? 0 : super.getEmail().hashCode());
+        return result;
+    }
 }

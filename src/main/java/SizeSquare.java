@@ -42,4 +42,11 @@ public abstract class SizeSquare implements ICount{
         SizeSquare that = (SizeSquare) o;
         return Objects.equals(length, that.length) && Objects.equals(width, that.width);
     }
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (length == 0 ? 0 : Float.hashCode(length))
+                + (width == 0 ? 0 : Float.hashCode(width));
+        return result;
+    }
+
 }

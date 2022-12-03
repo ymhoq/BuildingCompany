@@ -35,4 +35,12 @@ public class Builder extends Person{
     public String toString() {
         return "I working on building Id: " + lockedBuildingId + "\n";
     }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (super.getLastName() == null ? 0 : super.getLastName().hashCode())
+                + (super.getFirstName() == null ? 0 : super.getFirstName().hashCode())
+                + (super.getEmail() == null ? 0 : super.getEmail().hashCode());
+        return result;
+    }
 }

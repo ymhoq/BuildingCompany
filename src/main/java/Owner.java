@@ -25,6 +25,7 @@ public class Owner extends Person{
         return super.toString()  + isFirstTime() + " owner : "+ "\n";
     }
 
+
     public boolean equals(Object o) {
         if (this == o)
             return true;
@@ -32,5 +33,13 @@ public class Owner extends Person{
             return false;
         Owner that = (Owner) o;
         return Objects.equals(firstTime, that.firstTime) && Objects.equals(this.getLastName(), that.getLastName());
+    }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (super.getLastName() == null ? 0 : super.getLastName().hashCode())
+                + (super.getFirstName() == null ? 0 : super.getFirstName().hashCode())
+                + (super.getEmail() == null ? 0 : super.getEmail().hashCode());
+        return result;
     }
 }

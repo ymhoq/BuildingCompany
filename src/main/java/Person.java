@@ -69,4 +69,13 @@ public abstract class Person implements IMessege{
         Person that = (Person) o;
         return Objects.equals(this.lastName, that.lastName) && Objects.equals(this.getFirstName(), that.getFirstName());
     }
+
+    public int hashCode() {
+        int result = 1;
+
+        result = 17 * result + (lastName == null ? 0 : lastName.hashCode())
+                + (firstName == null ? 0 : firstName.hashCode())
+                + (email == null ? 0 : email.hashCode());
+        return result;
+    }
 }

@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public final class Office extends Building {
-     private final float COEFFCOUNT = 1;
+    final private float COEFFCOUNT = 1;
     final private float COEFFPROCESS = 1;
     private int workPlaces;
 
@@ -9,7 +9,7 @@ public final class Office extends Building {
     }
 
     public Office(float length, float width, int rooms, int statusReady, int id, int workPlaces) {
-        super( length, width, id, rooms, statusReady);
+        super(length, width, id, rooms, statusReady);
         this.workPlaces = workPlaces;
     }
 
@@ -20,8 +20,9 @@ public final class Office extends Building {
     public void setWorkPlaces(int workPlaces) {
         this.workPlaces = workPlaces;
     }
+
     public String toString() {
-        return  super.toString() + "work places: " + workPlaces + "\n" ;
+        return super.toString() + "work places: " + workPlaces + "\n";
     }
 
     public boolean equals(Object o) {
@@ -30,6 +31,14 @@ public final class Office extends Building {
         if (o == null || getClass() != o.getClass())
             return false;
         Office that = (Office) o;
-        return  Objects.equals(workPlaces, that.workPlaces) && Objects.equals(this.getId(), that.getId());
+        return Objects.equals(workPlaces, that.workPlaces) && Objects.equals(this.getId(), that.getId());
+    }
+
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (workPlaces == 0 ? 0 : Integer.hashCode(workPlaces))
+                + (super.getLength() == 0 ? 0 : Float.hashCode(super.getLength()))
+                + (super.getWidth() == 0 ? 0 : Float.hashCode(super.getWidth()));
+        return result;
     }
 }

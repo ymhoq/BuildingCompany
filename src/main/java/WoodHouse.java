@@ -53,4 +53,12 @@ public final class WoodHouse extends Building{
                 && Objects.equals(lifeArea, that.lifeArea) && this.equals(that);
     }
 
+    public int hashCode() {
+        int result = 1;
+        result = 29 * result + (lifeArea == 0 ? 0 : Integer.hashCode(lifeArea))
+                + (super.getLength() == 0 ? 0 : Float.hashCode(super.getLength()))
+                + (super.getWidth() == 0 ? 0 : Float.hashCode(super.getWidth()));
+        return result;
+    }
+
 }

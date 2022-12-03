@@ -20,6 +20,16 @@ public class RoomMachine extends Instrument{
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public final void isReadyToUse() {
+
+    }
+
+    @Override
+    public final void isHasPrice() {
+
+    }
     public String toString() {
         return "RoomMachine ID: " + id + "\n" + super.toString();
     }
@@ -32,14 +42,9 @@ public class RoomMachine extends Instrument{
         RoomMachine that = (RoomMachine) o;
         return Objects.equals(id, that.id) && this.equals(that);
     }
-
-    @Override
-    public final void isReadyToUse() {
-
-    }
-
-    @Override
-    public final void isHasPrice() {
-
+    public int hashCode() {
+        int result = 1;
+        result = 17 * result + (lockedBuilding == null ? 0 : lockedBuilding.hashCode());
+        return result;
     }
 }
