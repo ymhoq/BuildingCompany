@@ -3,23 +3,27 @@ package myLinkedList;
 public class Element <T>{
 
     private T element;
-    private int preverios;
-    private int next;
+    private Element <T> preverios;
+    private Element <T> next;
 
-     int getPreverios() {
+    public Element(){}
+
+    public Element(T element) { this.element = element; }
+
+    Element<T> getPreverios() {
        return this.preverios;
     }
 
-    void setPreverios(int i) {
-         this.preverios = i;
+    void setPreverios(Element element) {
+         this.preverios = element;
     }
 
-    int getNext() {
+    Element<T> getNext() {
         return this.next;
     }
 
-    void setNext(int i) {
-        this.next = i;
+    void setNext(Element element) {
+        this.next = element;
     }
 
     T getElement() {

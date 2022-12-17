@@ -78,6 +78,6 @@ public class Catalog <G extends Ground, T extends Building>{
         usedGrounds.put((G) groundList.get(3), (T) insertStandartOffice());
         usedGrounds.put((G) groundList.get(0), (T) insertStandartOffice());
 
-        //usedGrounds.forEach();
+        //usedGrounds.forEach(Map.Entry<G, T> entry : entrySet()); {}
     }
 }
