@@ -14,12 +14,12 @@ public class Builder <T extends Equipmentable> extends Person {
     }
 
     public Builder(String firstName, String lastName, int age, String phoneNumber, String email, int salary, int lockedBuildingId) throws IncorrectDataExсeption {
-        super(firstName, lastName, age, phoneNumber, email);
+        super(firstName, lastName, age, gender, phoneNumber, email);
         this.salary = salary;
         this.lockedBuildingId = lockedBuildingId;
     }
     public Builder(Builder builder) throws IncorrectDataExсeption {
-        super(builder.getFirstName(), builder.getLastName(), builder.getAge(), builder.getPhoneNumber(), builder.getEmail());
+        super(builder.getFirstName(), builder.getLastName(), builder.getAge(), gender, builder.getPhoneNumber(), builder.getEmail());
         this.salary = builder.getSalary();
         this.lockedBuildingId = builder.getLockedBuildingId();
     }

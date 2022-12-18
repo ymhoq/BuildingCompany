@@ -10,7 +10,7 @@ public class Owner extends Person {
     public Owner() {
     }
     public Owner(String firstName, String lastName, int age, String phoneNumber, String email) throws IncorrectDataExсeption {
-        super(firstName, lastName, age, phoneNumber, email);
+        super(firstName, lastName, age, gender, phoneNumber, email);
     }
     public void setFirstTime(boolean firstTime) {
         this.firstTime = firstTime;

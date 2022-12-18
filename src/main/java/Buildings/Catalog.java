@@ -1,5 +1,7 @@
 package Buildings;
 
+import Enums.Directions;
+
 import java.util.*;
 
 
@@ -41,10 +43,10 @@ public class Catalog <G extends Ground, T extends Building>{
 
     public List<Ground> insertGroundListCatalog() {
         List<Ground> groundList = new ArrayList<>();
-        groundList.add(new Ground(10f, 10f,1, "east", 1));
-        groundList.add(new Ground(10,20, 2, "west", 1));
-        groundList.add(new Ground(15, 20, 3,"south", 1));
-        groundList.add(new Ground(20, 20, 4,"north", 1));
+        groundList.add(new Ground(10f, 10f,1, Directions.east, 1));
+        groundList.add(new Ground(10,20, 2, Directions.west, 1));
+        groundList.add(new Ground(15, 20, 3, Directions.south, 1));
+        groundList.add(new Ground(20, 20, 4, Directions.north, 1));
 
         return groundList;
     }

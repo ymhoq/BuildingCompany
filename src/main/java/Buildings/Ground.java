@@ -1,20 +1,22 @@
 package Buildings;
 
+import Enums.Directions;
+
 import java.util.Objects;
 
 public class Ground <T extends Building> extends SizeSquare {
     private int id;
-    private String location;
+    private Directions directions;
     private int coeffCount;
 
     private T buldiding;
     public Ground() {
     }
 
-    public Ground(float length, float width, int id, String location, int coeffCount) {
+    public Ground(float length, float width, int id, Directions directions, int coeffCount) {
         super( length, width);
         this.id = id;
-        this.location = location;
+        this.directions = directions;
         this.coeffCount = coeffCount;
 
     }
@@ -27,12 +29,12 @@ public class Ground <T extends Building> extends SizeSquare {
         this.id = id;
     }
 
-    public String getLocation() {
-        return location;
+    public Directions geDirections() {
+        return directions;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setDirections(Directions directions) {
+        this.directions = directions;
     }
 
     public int getCoeffCount() {
@@ -44,7 +46,7 @@ public class Ground <T extends Building> extends SizeSquare {
     }
 
     public String toString() {
-        return "Id: " + id + " location" +location + " size:"  + getSquare() + " m2" +"\n";
+        return "Id: " + id + " location" +directions + " size:"  + getSquare() + " m2" +"\n";
     }
 
     public int hashCode() {

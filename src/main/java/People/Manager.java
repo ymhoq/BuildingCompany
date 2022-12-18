@@ -10,7 +10,7 @@ public class Manager extends Person {
     public Manager() {
     }
     public Manager(String firstName, String lastName, int age, String phoneNumber, String email, int salary) throws IncorrectDataExсeption {
-        super(firstName, lastName, age, phoneNumber, email);
+        super(firstName, lastName, age, gender, phoneNumber, email);
         this.salary = salary;
     }
 

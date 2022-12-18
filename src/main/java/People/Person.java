@@ -2,6 +2,7 @@ package People;
 
 import java.util.Objects;
 
+import Enums.Gender;
 import Exeptions.*;
 import Interfaces.IMessege;
 import org.apache.logging.log4j.LogManager;
@@ -12,15 +13,17 @@ public abstract class Person implements IMessege {
     private String firstName;
     private String lastName;
     private int age;
+    private Gender gender;
     private String phoneNumber;
     private String email;
 
     public Person() {
     }
-    public Person(String firstName, String lastName, int age, String phoneNumber, String email) throws IncorrectDataExсeption {
+    public Person(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email) throws IncorrectDataExсeption {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -64,6 +67,14 @@ public abstract class Person implements IMessege {
         else this.phoneNumber = phoneNumber;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -95,4 +106,5 @@ public abstract class Person implements IMessege {
                 + (email == null ? 0 : email.hashCode());
         return result;
     }
+
 }

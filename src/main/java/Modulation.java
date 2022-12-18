@@ -1,6 +1,7 @@
 import Buildings.Catalog;
 import Buildings.Ground;
 import Buildings.WoodHouse;
+import Enums.Directions;
 import Exeptions.IncorrectDataExсeption;
 import People.Builder;
 import People.Manager;
@@ -37,7 +38,7 @@ public class Modulation {
             LOGGER.error(e);
         }
 
-        Ground ground = new Ground(30, 30, 1, "West", 2);
+        Ground ground = new Ground(30, 30, 1, Directions.east, 2);
 
         WoodHouse woodHouse = new WoodHouse(10, 10, 4, 0, 1, 1, 2, 40);
 
