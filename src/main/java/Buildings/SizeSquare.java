@@ -4,7 +4,7 @@ import Interfaces.ICount;
 
 import java.util.Objects;
 
-public abstract class SizeSquare implements ICount {
+public abstract class SizeSquare  {
     private float length;
     private float width;
     public SizeSquare() {
@@ -34,6 +34,8 @@ public abstract class SizeSquare implements ICount {
     public void setWidth(float width) {
         this.width = width;
     }
+
+   // public
     public String toString() {
         return "Long is: " + length + "\n" + "Wide is: " + width;
     }

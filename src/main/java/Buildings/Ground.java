@@ -10,11 +10,12 @@ public class Ground <T extends Building> extends SizeSquare {
     private int coeffCount;
 
     private T buldiding;
+
     public Ground() {
     }
 
     public Ground(float length, float width, int id, Directions directions, int coeffCount) {
-        super( length, width);
+        super(length, width);
         this.id = id;
         this.directions = directions;
         this.coeffCount = coeffCount;
@@ -45,8 +46,17 @@ public class Ground <T extends Building> extends SizeSquare {
         this.coeffCount = coeffCount;
     }
 
+    public T getBuldiding() {
+        return buldiding;
+    }
+
+    public void setBuldiding(T buldiding) {
+        this.buldiding = buldiding;
+    }
+
+
     public String toString() {
-        return "Id: " + id + " location" +directions + " size:"  + getSquare() + " m2" +"\n";
+        return "Id: " + id + " location" + directions + " size:" + getSquare() + " m2" + "\n";
     }
 
     public int hashCode() {
@@ -63,24 +73,9 @@ public class Ground <T extends Building> extends SizeSquare {
         if (o == null || getClass() != o.getClass())
             return false;
         Ground that = (Ground) o;
-        return Objects.equals(id, that.id) && Objects.equals(this.getSquare(),that.getSquare());
+        return Objects.equals(id, that.id) && Objects.equals(this.getSquare(), that.getSquare());
     }
 
-    @Override
-    public void price() {
-        super.price();
-    }
 
-    @Override
-    public void getPrice() {
-
-    }
-
-    public T getBuldiding() {
-        return buldiding;
-    }
-
-    public void setBuldiding(T buldiding) {
-        this.buldiding = buldiding;
-    }
 }
+

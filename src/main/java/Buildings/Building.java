@@ -13,6 +13,7 @@ public class Building extends SizeSquare {
 
     public Building() {
     }
+
     public Building(float length, float width, int id, int rooms, int statusReady) {
         super(length, width);
         this.id = id;
@@ -27,6 +28,15 @@ public class Building extends SizeSquare {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getStatusReady() {
+        return statusReady;
+    }
+
+    public void setStatusReady(int statusReady) {
+        this.statusReady = statusReady;
+    }
+
     public String toString() {
         return "Building ID: " + id + "\n";
     }
@@ -40,13 +50,5 @@ public class Building extends SizeSquare {
         return Objects.equals(id, that.id) && this.equals(that);
     }
 
-    @Override
-    public void price() {
-        super.price();
-    }
 
-    @Override
-    public void getPrice() {
-
-    }
 }

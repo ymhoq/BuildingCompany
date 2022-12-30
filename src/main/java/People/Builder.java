@@ -1,5 +1,6 @@
 package People;
 
+import Enums.Gender;
 import Exeptions.IncorrectDataExсeption;
 import Interfaces.Equipmentable;
 
@@ -13,15 +14,10 @@ public class Builder <T extends Equipmentable> extends Person {
     public Builder() {
     }
 
-    public Builder(String firstName, String lastName, int age, String phoneNumber, String email, int salary, int lockedBuildingId) throws IncorrectDataExсeption {
+    public Builder(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary, int lockedBuildingId) throws IncorrectDataExсeption {
         super(firstName, lastName, age, gender, phoneNumber, email);
         this.salary = salary;
         this.lockedBuildingId = lockedBuildingId;
-    }
-    public Builder(Builder builder) throws IncorrectDataExсeption {
-        super(builder.getFirstName(), builder.getLastName(), builder.getAge(), gender, builder.getPhoneNumber(), builder.getEmail());
-        this.salary = builder.getSalary();
-        this.lockedBuildingId = builder.getLockedBuildingId();
     }
 
     public int getSalary() {

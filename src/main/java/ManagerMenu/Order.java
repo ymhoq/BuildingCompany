@@ -1,11 +1,15 @@
+package ManagerMenu;
+
 import java.util.Objects;
 
 import Buildings.Building;
 import Buildings.Ground;
+import Interfaces.ICount;
 import People.Manager;
 import People.Owner;
+import fi.IOrderAmount;
 
-public class Order {
+public class Order implements ICount {
     private int id;
     private Manager manager;
     private Owner owner;
@@ -83,6 +87,12 @@ public class Order {
         this.statusPay = statusPay;
     }
 
+    public int countAmountOfOrder(Order order, IOrderAmount amount) {
+        int cost;
+        cost = amount.count(order);
+        return cost;
+    }
+
     public String toString() {
         return "Order Id: " + id + "\n"
                 + "Manager : " + manager.toString()
@@ -100,7 +110,7 @@ public class Order {
         return Objects.equals(id, that.id) && Objects.equals(manager, that.manager)
                 && Objects.equals(owner, that.owner) && Objects.equals(ground, that.ground)
                 && Objects.equals(building, that.building) && Objects.equals(amount, that.amount)
-                && Objects.equals(statusPay, that.statusPay) ;
+                && Objects.equals(statusPay, that.statusPay);
     }
 
     public int hashCode() {
@@ -109,8 +119,18 @@ public class Order {
                 + (owner == null ? 0 : owner.hashCode())
                 + (ground == null ? 0 : ground.hashCode())
                 + (building == null ? 0 : building.hashCode())
-           //     + (amount == null ? 0 : hashCode(amount))
+        //     + (amount == null ? 0 : hashCode(amount))
         ;
         return result;
+    }
+
+    @Override
+    public void monthSalary() {
+
+    }
+
+    @Override
+    public void getPrice() {
+
     }
 }

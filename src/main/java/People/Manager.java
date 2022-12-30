@@ -1,6 +1,11 @@
 package People;
 
+import Buildings.Building;
+import Buildings.Catalog;
+import Buildings.Ground;
+import Enums.Gender;
 import Exeptions.IncorrectDataExсeption;
+import fi.ISearchSquareGround;
 
 import java.util.Objects;
 
@@ -9,7 +14,7 @@ public class Manager extends Person {
 
     public Manager() {
     }
-    public Manager(String firstName, String lastName, int age, String phoneNumber, String email, int salary) throws IncorrectDataExсeption {
+    public Manager(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary) throws IncorrectDataExсeption {
         super(firstName, lastName, age, gender, phoneNumber, email);
         this.salary = salary;
     }
@@ -20,6 +25,17 @@ public class Manager extends Person {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Ground search(Catalog<Ground,Building> catalog, ISearchSquareGround predicate) {
+        Ground result = null;
+        for(Ground myCatalog : catalog.getGroundList())
+        {
+            if(predicate.findGround(myCatalog)) {
+            result = myCatalog;
+            }
+        }
+    return result;
     }
 
     public String toString() {

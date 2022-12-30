@@ -1,50 +1,55 @@
 package Buildings;
 
 import Enums.Directions;
+import ManagerMenu.Order;
+import ManagerMenu.Orders;
 
 import java.util.*;
 
 
-public class Catalog <G extends Ground, T extends Building>{
+public class Catalog<G extends Ground, T extends Building> {
 
     private List<G> groundList = new ArrayList<>();
     private LinkedList<G> groundOnOrderList = new LinkedList<>();
     private List<T> finishedBuldings = new ArrayList<>();
 
-    private Map<G,T> usedGrounds = new HashMap<>() ;
+    private Map<G, T> usedGrounds = new HashMap<>();
 
-    public Catalog() {}
+    public Catalog() {
+    }
 
     public Catalog(List<G> groundList) {
-         this.groundList = groundList;
-     }
+        this.groundList = groundList;
+    }
 
-     private LinkedList<G> getGroundOnOrderList() {
+    private LinkedList<G> getGroundOnOrderList() {
         return groundOnOrderList;
-     }
+    }
 
-     private void setGroundOnOrderList(LinkedList<G> groundOnOrderList) {
-         this.groundList = groundOnOrderList;
-     }
+    private void setGroundOnOrderList(LinkedList<G> groundOnOrderList) {
+        this.groundList = groundOnOrderList;
+    }
 
-    private List<G> getGroundList() {
+    public List<G> getGroundList() {
         return groundList;
     }
-    private void setGroundList(List<G> groundList) {
+
+    public void setGroundList(List<G> groundList) {
         this.groundList = groundList;
     }
 
     private List<T> getFinishedBuldingst() {
         return finishedBuldings;
     }
+
     private void setFinishedBuldings(List<T> finishedBuldings) {
         this.finishedBuldings = finishedBuldings;
     }
 
     public List<Ground> insertGroundListCatalog() {
         List<Ground> groundList = new ArrayList<>();
-        groundList.add(new Ground(10f, 10f,1, Directions.east, 1));
-        groundList.add(new Ground(10,20, 2, Directions.west, 1));
+        groundList.add(new Ground(10f, 10f, 1, Directions.east, 1));
+        groundList.add(new Ground(10, 20, 2, Directions.west, 1));
         groundList.add(new Ground(15, 20, 3, Directions.south, 1));
         groundList.add(new Ground(20, 20, 4, Directions.north, 1));
 
@@ -52,13 +57,26 @@ public class Catalog <G extends Ground, T extends Building>{
     }
 
     private Office insertStandartOffice() {
-        Office office = new Office(10, 20 , 5, 0, 0, 50);
+        Office office = new Office(10, 20, 5, 0, 0, 50);
         return office;
     }
 
     private WoodHouse insertStandartWoodHouse() {
-        WoodHouse woodHouse = new WoodHouse( 5, 8, 0, 3, 0, 1, 1, 20);
+        WoodHouse woodHouse = new WoodHouse(5, 8, 0, 3, 0, 1, 1, 20);
         return woodHouse;
+    }
+
+    public Ground maxSizeOfGList() {
+        Ground maxSizeSquareElement;
+        maxSizeSquareElement = groundList.stream().max(Comparator.comparing(Ground::getSquare)).orElseThrow(NoSuchElementException::new);
+        return maxSizeSquareElement;
+    }
+
+    public static Ground minPrice(List<Order> orderList) {
+        Ground minPriceElement;
+        Order minPriceOrder;
+        minPriceOrder = orderList.stream().min(Comparator.comparing(Order::getAmount)).orElseThrow(NoSuchElementException::new);
+        return minPriceElement = minPriceOrder.getGround();
     }
 
 

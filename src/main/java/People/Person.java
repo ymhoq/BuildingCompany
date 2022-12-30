@@ -7,9 +7,10 @@ import Exeptions.*;
 import Interfaces.IMessege;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 public abstract class Person implements IMessege {
 
-    private static final Logger L= LogManager.getLogger(Person.class);
+    private static final Logger L = LogManager.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private int age;
@@ -19,13 +20,17 @@ public abstract class Person implements IMessege {
 
     public Person() {
     }
+
     public Person(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email) throws IncorrectDataExсeption {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        if (firstName.isEmpty() || lastName.isEmpty()) throw new IncorrectDataExсeption();
+        else {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.gender = gender;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
     }
 
     public String getFirstName() {
@@ -33,9 +38,10 @@ public abstract class Person implements IMessege {
     }
 
     public void setFirstName(String firstName) throws PersonNameExсeption {
-        if(firstName.length()>20) { L.error(new PersonNameExсeption());
-            throw new PersonNameExсeption();}
-        else this.firstName = firstName;
+        if (firstName.length() > 20) {
+            L.error(new PersonNameExсeption());
+            throw new PersonNameExсeption();
+        } else this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -43,7 +49,7 @@ public abstract class Person implements IMessege {
     }
 
     public void setLastName(String lastName) throws PersonLastNameExсeption {
-        if(firstName.length()>20) throw new PersonLastNameExсeption();
+        if (firstName.length() > 20) throw new PersonLastNameExсeption();
         else this.lastName = lastName;
     }
 
@@ -52,7 +58,7 @@ public abstract class Person implements IMessege {
     }
 
     public void setAge(int age) throws PersonAgeExсeption {
-        if(age<18||age>120) throw new PersonAgeExсeption();
+        if (age < 18 || age > 120) throw new PersonAgeExсeption();
         else this.age = age;
     }
 
@@ -61,10 +67,9 @@ public abstract class Person implements IMessege {
     }
 
     public void setPhoneNumber(String phoneNumber) throws PersonPhoneExсeption {
-        if (phoneNumber.length()>10||phoneNumber.matches("[.|(){^?*+]")) {
-            L.error( new PersonPhoneExсeption());
-        }
-        else this.phoneNumber = phoneNumber;
+        if (phoneNumber.length() > 10 || phoneNumber.matches("[.|(){^?*+]")) {
+            L.error(new PersonPhoneExсeption());
+        } else this.phoneNumber = phoneNumber;
     }
 
     public Gender getGender() {
@@ -80,10 +85,11 @@ public abstract class Person implements IMessege {
     }
 
     public void setEmail(String email) throws PersonEmailExсeption {
-    if(email.matches("[]]")) this.email = email;
-    else L.error(new PersonEmailExсeption());
+        if (email.matches("[]]")) this.email = email;
+        else L.error(new PersonEmailExсeption());
 
     }
+
     public String toString() {
         return "firstname : " + firstName + "\n"
                 + "lastname : " + lastName + "\n";
