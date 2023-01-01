@@ -5,7 +5,7 @@ import Exeptions.IncorrectDataExсeption;
 import Interfaces.Equipmentable;
 
 
-public class Builder <T extends Equipmentable> extends Person {
+public class Builder <T extends Equipmentable> extends Employee {
     private int salary;
     private int lockedBuildingId;
 
@@ -14,8 +14,8 @@ public class Builder <T extends Equipmentable> extends Person {
     public Builder() {
     }
 
-    public Builder(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary, int lockedBuildingId) throws IncorrectDataExсeption {
-        super(firstName, lastName, age, gender, phoneNumber, email);
+    public Builder(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary, int workDays, int lockedBuildingId) throws IncorrectDataExсeption {
+        super(firstName, lastName, age, gender, phoneNumber, email, salary, workDays);
         this.salary = salary;
         this.lockedBuildingId = lockedBuildingId;
     }

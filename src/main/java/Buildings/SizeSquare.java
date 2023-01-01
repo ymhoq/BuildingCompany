@@ -3,7 +3,7 @@ package Buildings;
 import Interfaces.ICount;
 
 import java.util.Objects;
-
+//delete
 public abstract class SizeSquare  {
     private float length;
     private float width;

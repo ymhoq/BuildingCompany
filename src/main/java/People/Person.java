@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class Person implements IMessege {
 
-    private static final Logger L = LogManager.getLogger(Person.class);
+    private static final Logger LOGGER = LogManager.getLogger(Person.class);
     private String firstName;
     private String lastName;
     private int age;
@@ -39,7 +39,7 @@ public abstract class Person implements IMessege {
 
     public void setFirstName(String firstName) throws PersonNameExсeption {
         if (firstName.length() > 20) {
-            L.error(new PersonNameExсeption());
+            LOGGER.error(new PersonNameExсeption());
             throw new PersonNameExсeption();
         } else this.firstName = firstName;
     }
@@ -68,7 +68,7 @@ public abstract class Person implements IMessege {
 
     public void setPhoneNumber(String phoneNumber) throws PersonPhoneExсeption {
         if (phoneNumber.length() > 10 || phoneNumber.matches("[.|(){^?*+]")) {
-            L.error(new PersonPhoneExсeption());
+            LOGGER.error(new PersonPhoneExсeption());
         } else this.phoneNumber = phoneNumber;
     }
 
@@ -86,7 +86,7 @@ public abstract class Person implements IMessege {
 
     public void setEmail(String email) throws PersonEmailExсeption {
         if (email.matches("[]]")) this.email = email;
-        else L.error(new PersonEmailExсeption());
+        else LOGGER.error(new PersonEmailExсeption());
 
     }
 
@@ -112,5 +112,4 @@ public abstract class Person implements IMessege {
                 + (email == null ? 0 : email.hashCode());
         return result;
     }
-
 }

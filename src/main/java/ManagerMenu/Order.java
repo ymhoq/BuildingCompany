@@ -6,13 +6,13 @@ import Buildings.Building;
 import Buildings.Ground;
 import Interfaces.ICount;
 import People.Manager;
-import People.Owner;
+import People.Customer;
 import fi.IOrderAmount;
 
 public class Order implements ICount {
     private int id;
     private Manager manager;
-    private Owner owner;
+    private Customer customer;
     private Ground ground;
     private Building building;
     private int amount;
@@ -21,10 +21,10 @@ public class Order implements ICount {
     public Order() {
     }
 
-    public Order(int id, Manager manager, Owner owner, Ground ground, Building building, int amount, boolean statusPay) {
+    public Order(int id, Manager manager, Customer customer, Ground ground, Building building, int amount, boolean statusPay) {
         this.id = id;
         this.manager = manager;
-        this.owner = owner;
+        this.customer = customer;
         this.ground = ground;
         this.building = building;
         this.amount = amount;
@@ -47,12 +47,12 @@ public class Order implements ICount {
         this.manager = manager;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public Customer getOwner() {
+        return customer;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setOwner(Customer customer) {
+        this.customer = customer;
     }
 
     public Ground getGround() {
@@ -96,7 +96,7 @@ public class Order implements ICount {
     public String toString() {
         return "Order Id: " + id + "\n"
                 + "Manager : " + manager.toString()
-                + "\n" + "Owner: " + owner.toString()
+                + "\n" + "Owner: " + customer.toString()
                 + "\n" + "Amount: " + amount
                 + "\n" + "Status of payment: " + statusPay + "\n";
     }
@@ -108,7 +108,7 @@ public class Order implements ICount {
             return false;
         Order that = (Order) o;
         return Objects.equals(id, that.id) && Objects.equals(manager, that.manager)
-                && Objects.equals(owner, that.owner) && Objects.equals(ground, that.ground)
+                && Objects.equals(customer, that.customer) && Objects.equals(ground, that.ground)
                 && Objects.equals(building, that.building) && Objects.equals(amount, that.amount)
                 && Objects.equals(statusPay, that.statusPay);
     }
@@ -116,7 +116,7 @@ public class Order implements ICount {
     public int hashCode() {
         int result = 1;
         result = 29 * result + (manager == null ? 0 : manager.hashCode())
-                + (owner == null ? 0 : owner.hashCode())
+                + (customer == null ? 0 : customer.hashCode())
                 + (ground == null ? 0 : ground.hashCode())
                 + (building == null ? 0 : building.hashCode())
         //     + (amount == null ? 0 : hashCode(amount))

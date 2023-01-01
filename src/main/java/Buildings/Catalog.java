@@ -5,6 +5,7 @@ import ManagerMenu.Order;
 import ManagerMenu.Orders;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Catalog<G extends Ground, T extends Building> {
@@ -48,35 +49,34 @@ public class Catalog<G extends Ground, T extends Building> {
 
     public List<Ground> insertGroundListCatalog() {
         List<Ground> groundList = new ArrayList<>();
-        groundList.add(new Ground(10f, 10f, 1, Directions.east, 1));
-        groundList.add(new Ground(10, 20, 2, Directions.west, 1));
-        groundList.add(new Ground(15, 20, 3, Directions.south, 1));
-        groundList.add(new Ground(20, 20, 4, Directions.north, 1));
+        groundList.add(new Ground(10f, 10f, 1, Directions.EAST, 1));
+        groundList.add(new Ground(10, 20, 2, Directions.WEST, 1));
+        groundList.add(new Ground(15, 20, 3, Directions.SOUTH, 1));
+        groundList.add(new Ground(20, 20, 4, Directions.NORTH, 1));
 
         return groundList;
     }
 
     private Office insertStandartOffice() {
-        Office office = new Office(10, 20, 5, 0, 0, 50);
-        return office;
+        return new Office(10, 20, 5, 0, 0, 50);
     }
 
     private WoodHouse insertStandartWoodHouse() {
-        WoodHouse woodHouse = new WoodHouse(5, 8, 0, 3, 0, 1, 1, 20);
-        return woodHouse;
+        return new WoodHouse(5, 8, 0, 3, 0, 1, 1, 20);
     }
 
     public Ground maxSizeOfGList() {
-        Ground maxSizeSquareElement;
-        maxSizeSquareElement = groundList.stream().max(Comparator.comparing(Ground::getSquare)).orElseThrow(NoSuchElementException::new);
-        return maxSizeSquareElement;
+        return groundList.stream().max(Comparator.comparing(Ground::getSquare)).orElseThrow(NoSuchElementException::new);
     }
 
     public static Ground minPrice(List<Order> orderList) {
-        Ground minPriceElement;
-        Order minPriceOrder;
-        minPriceOrder = orderList.stream().min(Comparator.comparing(Order::getAmount)).orElseThrow(NoSuchElementException::new);
-        return minPriceElement = minPriceOrder.getGround();
+        return orderList.stream().min(Comparator.comparing(Order::getAmount)).orElseThrow(NoSuchElementException::new).getGround();
+    }
+
+    public List<Ground> getGroundListByDirection(Directions direction) {
+        List<Ground> groundListByDirection = new ArrayList<>();
+        groundListByDirection = this.groundList.stream().filter(filter -> filter.getDirections().equals(direction)).collect(Collectors.toUnmodifiableList());
+        return groundListByDirection;
     }
 
 

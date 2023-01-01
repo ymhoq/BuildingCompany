@@ -1,7 +1,7 @@
 package Enums;
 
 public enum Directions {
-    south("south"), west("west"), north("north"), east("east");
+    SOUTH("south"), WEST("west"), NORTH("north"), EAST("east");
     private String direction;
 
     Directions(String direction) {

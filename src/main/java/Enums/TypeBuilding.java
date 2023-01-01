@@ -1,5 +1,5 @@
 package Enums;
-
+//not true
 public enum TypeBuilding {
     SMALL {
         public String getValue() {

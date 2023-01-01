@@ -8,14 +8,13 @@ import Exeptions.IncorrectDataExсeption;
 import fi.ISearchSquareGround;
 
 import java.util.Objects;
-
-public class Manager extends Person {
+// add employe
+public class Manager extends Employee {
     private int salary;
-
     public Manager() {
     }
-    public Manager(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary) throws IncorrectDataExсeption {
-        super(firstName, lastName, age, gender, phoneNumber, email);
+    public Manager(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email, int salary, int workDays) throws IncorrectDataExсeption {
+        super(firstName, lastName, age, gender, phoneNumber, email, salary, workDays);
         this.salary = salary;
     }
 

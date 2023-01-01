@@ -5,12 +5,11 @@ import Exeptions.IncorrectDataExсeption;
 
 import java.util.Objects;
 
-public class Owner extends Person {
+public class Customer extends Person {
     private boolean firstTime;
-
-    public Owner() {
+    public Customer() {
     }
-    public Owner(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email) throws IncorrectDataExсeption {
+    public Customer(String firstName, String lastName, int age, Gender gender, String phoneNumber, String email) throws IncorrectDataExсeption {
         super(firstName, lastName, age, gender, phoneNumber, email);
     }
     public void setFirstTime(boolean firstTime) {
@@ -36,7 +35,7 @@ public class Owner extends Person {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        Owner that = (Owner) o;
+        Customer that = (Customer) o;
         return Objects.equals(firstTime, that.firstTime) && Objects.equals(this.getLastName(), that.getLastName());
     }
 
