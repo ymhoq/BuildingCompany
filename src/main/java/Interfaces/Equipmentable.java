@@ -2,6 +2,6 @@ package Interfaces;
 
 public interface Equipmentable {
 
-    void isReadyToUse();
-    void isHasPrice();
+    boolean isReadyToUse();
+    boolean isHasPrice();
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public abstract  class Instrument implements Equipmentable {
     private String name;
-    private int count;
+    private int count = 0;
     private boolean isFree;
 
     protected Instrument() {

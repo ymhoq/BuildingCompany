@@ -8,7 +8,7 @@ import Interfaces.IMessege;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class Person implements IMessege {
+public abstract class Person {
 
     private static final Logger LOGGER = LogManager.getLogger(Person.class);
     private String firstName;

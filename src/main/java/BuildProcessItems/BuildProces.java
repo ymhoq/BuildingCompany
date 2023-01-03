@@ -2,11 +2,19 @@ package BuildProcessItems;
 
 import BuildProcessItems.Instrument;
 import Buildings.Building;
+import Interfaces.IMessege;
 import People.Builder;
+import People.Customer;
+import People.Employee;
+import People.Person;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-public class BuildProces {
+public class BuildProces implements IMessege {
+
+    private static final Logger LOGGER = LogManager.getLogger(BuildProces.class);
     private int dateStart;
     private int dateFinish;
     private Building building;
@@ -80,5 +88,15 @@ public class BuildProces {
                 + (builderList == null ? 0 : builderList.hashCode())
                 + (instrumentList == null ? 0 : instrumentList.hashCode());
         return result;
+    }
+
+    @Override
+    public void sendSms(Employee employee) {
+        LOGGER.info(employee.getPhoneNumber() + this.toString());
+    }
+
+    @Override
+    public void sendSms(Customer customer) {
+        LOGGER.info(customer.getPhoneNumber() + this.toString());
     }
 }

@@ -26,14 +26,17 @@ public class RoofMachine extends Instrument {
     }
 
     @Override
-    public final void isReadyToUse() {
-
+    public boolean isReadyToUse() {
+        if (super.isFree()) return true;
+        return false;
     }
 
     @Override
-    public final void isHasPrice() {
-
+    public boolean isHasPrice() {
+        if (super.getCount() == 0) return false;
+        return true;
     }
+
     public String toString() {
         return "RoofMachine ID: " + id + "\n" + super.toString();
     }
@@ -46,6 +49,7 @@ public class RoofMachine extends Instrument {
         RoofMachine that = (RoofMachine) o;
         return Objects.equals(id, that.id) && Objects.equals(lockedBuilding, that.lockedBuilding);
     }
+
     public int hashCode() {
         int result = 1;
         result = 17 * result + (lockedBuilding == null ? 0 : lockedBuilding.hashCode());

@@ -93,6 +93,17 @@ public class Order implements ICount {
         return cost;
     }
 
+
+    @Override
+    public float getBuildTime() {
+        return building.getSquare() * ground.getCoeffCount();
+    }
+
+    @Override
+    public float getPrice() {
+        return building.getSquare()*ground.getCoeffCount()+ ground.getSquare()* ground.getCoeffCount();
+    }
+
     public String toString() {
         return "Order Id: " + id + "\n"
                 + "Manager : " + manager.toString()
@@ -124,13 +135,4 @@ public class Order implements ICount {
         return result;
     }
 
-    @Override
-    public void monthSalary() {
-
-    }
-
-    @Override
-    public void getPrice() {
-
-    }
 }
